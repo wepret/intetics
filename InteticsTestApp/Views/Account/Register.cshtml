@@ -1,0 +1,68 @@
+﻿@model InteticsTestApp.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Registeration";
+}
+
+<h2>Registration</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <h4>Sign Up</h4>
+        <hr />
+        @Html.ValidationSummary(false)
+
+
+
+
+        <div>
+           @*Имя пользователя*@
+            <div>
+                <p>
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { placeholder = "Username", @class = "inpfieldcustom" } })
+                    </p>
+</div>
+        </div>
+
+
+        <div>
+            @*Электронный адрес*@
+            <div>
+                <p>
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email", @class = "inpfieldcustom" } })
+                    </p>
+</div>
+        </div>
+
+     
+
+        <div>
+            @*Пароль*@
+            <div>
+                <p>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "inpfieldcustom" } })
+                    </p>
+</div>
+        </div>
+
+        <div>
+            @*Подтвердить пароль*@
+            <div>
+                <p>
+                    @Html.EditorFor(model => model.PasswordConfirm, new { htmlAttributes = new { placeholder = "Retype password", @class = "inpfieldcustom" } })
+                    </p>
+</div>
+        </div>
+
+        <div>
+            <div>
+                <input class="custombuttonst" type="submit" value="SIGN ME UP" />
+            </div>
+        </div>
+    </div>
+}
+

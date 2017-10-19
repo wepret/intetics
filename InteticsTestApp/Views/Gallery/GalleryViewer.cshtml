@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <link href="~/Content/least.min.css" rel="stylesheet" />
+    <link href="~/Content/modalwindow.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js" @*defer="defer"*@></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js" @*defer="defer"*@></script>
+    <script type="text/javascript" src="~/Scripts/jquery-latest.js" defer="defer"></script>
+    <script type="text/javascript" src="~/Scripts/least.min.js" defer="defer"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.lazyload.min.js" defer="defer"></script>
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" />
+    <script type="text/javascript" src="~/Scripts/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="~/Scripts/functions.js"></script>
+    <script type="text/javascript" src="~/Scripts/drag_and_drop.js"></script>
+    <link rel="stylesheet" href="~/Content/bootstrap-tagsinput.css">
+    <script src="~/Scripts/bootstrap-tagsinput.min.js"></script>
+    <script src="~/Scripts/bootstrap-tagsinput.js"></script>
+
+
+
+
+</head>
+<body style = "overflow-x:hidden;">
+    <script type="text/javascript">
+
+        $(document).on('keyup keypress', '.form-container', function (e) {
+    var keyCode = e.keyCode || e.which;
+    if (keyCode === 13) {
+        $(".submit-container").trigger("click");
+        return false;
+    }
+});</script>
+    <div>
+        <div id="search-form">
+            <form  class="form-container" action="">
+                <input  type="text" class="search-field" value="Type search text here..." />
+                <div class="submit-container">
+                    <div  class="submit"></div>
+                </div>
+            </form>
+            <div class="popup">
+                <div id="outputbox">
+                </div>
+            </div>
+        </div>
+
+        <section style="margin-top:7%">
+           
+            <ul id="gallery">
+                <li id="fullPreview"></li>  
+            </ul>
+        </section>
+    </div>
+
+
+
+    <div id="modal_form">
+        <div id="modal_close">X</div> 
+        <div class="uploadpart" >
+            <h3 class="drop-text" style="margin:-5%">Drag and Drop Images Here</h3>
+            <div id="drop-area"  src="#">
+            </div>
+     
+            <div id="add_butt_img">       
+                <input type="file" id="fileToUpload" @*multiple="multiple"*@><br />
+                <div id="preview"></div>
+            </div>   
+            <div class="publish_butt" id="upload_btn">
+                <p class="publish">Publish<P>
+            
+</div> 
+</div>
+        <div class="addit_advice additional_information ">
+            <h3 class="drop-text" style="margin-top: 11%; ">Add info</h3>         
+            <h2 class="drop-text h2text" style="margin-top: -1%;">Name your media</h2>
+            <input id="filenamefield" style="background-color: transparent;margin-right: 55%;width:35%;margin-top: 1%;" value="" type="text">
+            <h2 class="drop-text h2text" style="margin-right: 15%;margin-top: -2%;">Add tags</h2>
+            <input id="tagsinputs" type="text" value="image,atr2,atr3" data-role="tagsinput" style="height:80%;width:80%;margin-left: -3%;" />
+            <input type="text"id="inputtagfield" placeholder="Write a tag" style="background-color: transparent;margin-right: 45%;"/>
+            <div class="publish_butt" id="add_tag_in_input" style="margin-top: -10%;width: 20%;position: relative;height: 5%;margin-left: 70%;">
+                <p class="publish">Add tag<P>
+            </div>
+            <textarea  id="descriptionfield" name="Text1" placeholder="Write a description" cols="40" rows="5"></textarea>
+        </div> 
+    </div>
+    <div id="overlay"></div>
+
+    <script type="text/javascript">
+           $(document).ready(function () {
+               $('.bootstrap-tagsinput :input').css("display", "none");
+               $('.bootstrap-tagsinput').css("max-height", "40%");
+               $('.bootstrap-tagsinput').css("max-width", "80%");
+               $('.bootstrap-tagsinput').css("height", "40%");
+               $('.bootstrap-tagsinput').css("width", "80%");
+           });
+    </script>
+
+
+</body>
+</html>

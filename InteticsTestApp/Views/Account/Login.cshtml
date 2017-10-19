@@ -1,0 +1,27 @@
+﻿@model  InteticsTestApp.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>SIGN IN</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.ValidationSummary()
+        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+        <p>
+            @*<label>Email</label><br />*@
+            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { placeholder = "Email Address", @class = "inpfieldcustom" } })
+        </p>
+        <p>
+            @*<label>Пароль</label><br />*@
+            @Html.EditorFor(x => x.Password, new { htmlAttributes = new { placeholder = "Password", @class = "inpfieldcustom" } })
+        </p>
+        <p><button class="custombuttonst" type="submit">Login</button></p>
+    </div>
+}
